@@ -7,11 +7,20 @@ Place this file in your shinyApp's directory and run:
 ```
 $ bash outputTest.sh
 ```
-Note that this script greps the string "outputId" so therefore Shiny outputs require the following example syntax:
+## Notes
+* This script greps the string "outputId" so therefore Shiny outputs in ui require the syntax:
 ```
 plotOutput(outputId = "plot")
 ```
 NOT 
 ```
 plotOutput("plot")
+```
+* Cleanest bash output will be possible with properly assigned ouput$slots in server.R:
+```
+output$plot <- plotOutput({...})
+```
+NOT 
+``` 
+output$plot<-plotOutput({...}) OR output$plot = plotOutput({...})
 ```

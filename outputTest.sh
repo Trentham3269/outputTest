@@ -9,7 +9,7 @@ num_id=$(wc -l < "TMP_id_lst.txt")
 echo Your ui file currently has $num_id outputIds defined
 
 # Return list of output slots from server and print message
-grep "output\\$" "server.R" | awk -F'\$' '{print $2}' | awk -F' <-' '{print $1}' \
+grep "output\\$" "server.R" | awk -F'\$' '{print $2}' | awk -F'<-' '{print $1}' \
 | sort -f | uniq >| TMP_slt_lst.txt
 num_slt=$(wc -l < "TMP_slt_lst.txt")
 echo Your server file currently has $num_slt output slots defined
